@@ -7,7 +7,11 @@ const validationRegister = (data) => {
     })
     return schema.validate(data);
 }
-
-
-
-module.exports = { validationRegister };
+const validationLogin = (data) => {
+    const schema = Joi.object({
+        email: Joi.string().pattern(new RegExp('@gmail.com$')).email().required(),
+        password: Joi.string().pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})')).required(),
+    })
+    return schema.validate(data);
+}
+module.exports = { validationRegister, validationLogin };

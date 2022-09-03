@@ -8,11 +8,11 @@ const otpSchema = new Schema({
         type: String,
         required: true,
     },
-    createdAt: {
+    createAt: {
         type: Date,
         default: Date.now,
         index: {
-            expires: 120
+            expires: 60
         }
     }
 }, {

@@ -8,10 +8,12 @@ const userTokenSchema = new Schema({
         type: String,
         required: true,
     },
-    createdAt: {
+    createAt: {
         type: Date,
         default: Date.now,
-        expires: 365 * 24 * 60 * 60
+        index: {
+            expires: 365 * 24 * 60 * 60
+        }
     }
 }, {
     collection: 'token'
